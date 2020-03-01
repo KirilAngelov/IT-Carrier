@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewData["Title"] = "RoomsView";
+}
+@{
+    Layout = "_LayoutReservations";
+}
+<br />
+<div class="container row p-0 m-0">
+    <div class="col-6">
+        <h2 class="text-info">Reservations List</h2>
+    </div>
+    <div class="col-3 offset-3">
+        <a asp-action="Upsert" asp-controller="Reservations" class="btn btn-info form-control text-white">
+            Reserve a new room.
+        </a>
+    </div>
+    <div class="col-12 border p-1">
+        <table id="DT_load" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>User</th>
+                    <th>Clients</th>
+                    <th>ArrivalDate</th>
+                    <th>ReleaseDate</th>
+                    <th>Lunch</th>
+                    <th>AllInclusive</th>
+                    <th>Bill</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/reservationsList.js"></script>
+}
+

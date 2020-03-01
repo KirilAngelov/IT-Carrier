@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewData["Title"] = "UserView";
+}
+@{
+    Layout = "_LayoutUsers";
+}
+<br />
+<div class="container row p-0 m-0">
+    <div class="col-6">
+        <h2 class="text-info">User List</h2>
+    </div>
+    <div class="col-3 offset-3">
+        <a asp-action="Upsert" asp-controller="Users" class="btn btn-info form-control text-white">
+            Create a new user
+        </a>
+    </div>
+    <div class="col-14 border p-1">
+        <table id="DT_load" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Name</th>
+                    <th>MiddleName</th>
+                    <th>LastName</th>
+                    <th>PersonalId</th>
+                    <th>TelephoneNumber</th>
+                    <th>Email</th>
+                    <th>StartDate</th>
+                    <th>Active</th>
+                    <th>FireDate</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/usersList.js"></script>
+}
+

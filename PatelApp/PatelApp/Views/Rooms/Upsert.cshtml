@@ -1,0 +1,57 @@
+﻿@model PatelApp.Models.Room
+
+<br />
+<h2 class="text-info">@(Model.Id != 0 ? "Edit" : "Create") Room</h2>
+<br />
+
+<div class="border container" style="padding:30px;">
+    <form method="post">
+        @if (Model.Id != 0)
+        {
+            <input type="hidden" asp-for="Id" />
+        }
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Id"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Capacity"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Capacity" class="form-control" />
+                <span asp-validation-for="Capacity" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Type"></label>
+            </div>
+            <div class="col-6">
+            
+                <span asp-validation-for="Type" class="text-danger"></span>
+                <select asp-for="Type" class="form-control" asp-items="@Html.GetEnumSelectList<Room.RoomStatus>()"></select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-3 offset-3">
+                <button type="submit" class="btn btn-primary form-control">
+                    @(Model.Id != 0 ? "Update" : "Create")
+                </button>
+            </div>
+            <div class="col-3">
+                <a asp-action="RoomsView" class="btn btn-success form-control">Back to List</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
